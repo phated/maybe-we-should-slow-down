@@ -39,16 +39,8 @@ module.exports = Conferences;
 var Conferences = require('./conferences');
 
 var data = [
-  {
-    name: 'Thunder Plains',
-    category: 'JavaScript',
-    month: 'November'
-  },
-  {
-    name: 'JSConf',
-    category: 'JavaScript',
-    month: 'December'
-  }
+  { name: 'Thunder Plains', category: 'JavaScript', month: 'November' },
+  { name: 'JSConf', category: 'JavaScript', month: 'December' }
 ];
 
 var confs = new Conferences(data);
