@@ -54,9 +54,9 @@ var data = [
 var confs = new Conferences(data);
 
 confs.find({ month: 'November' });
-// { name: 'Thunder Plains', category: 'JavaScript', month: 'November' }
+// [{ name: 'Thunder Plains', category: 'JavaScript', month: 'November' }]
 
 confs.find({ category: 'JavaScript' });
-// { name: 'Thunder Plains', category: 'JavaScript', month: 'November' },
-// { name: 'JSConf', category: 'JavaScript', month: 'December' }
+// [{ name: 'Thunder Plains', category: 'JavaScript', month: 'November' },
+//  { name: 'JSConf', category: 'JavaScript', month: 'December' }]
 ```
