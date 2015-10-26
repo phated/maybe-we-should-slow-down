@@ -1,38 +1,42 @@
 # Private APIs - WeakMaps
 
+## conferences.js
 ```js
-var options = new WeakMap();
+var _ = require('lodash');
 
-class Conference {
-    constructor(opts){
-        var defaultedOpts = Object.assign({
-            name: '',
-            schedule: []
-        }, opts)
-        options.set(this, defaultedOpts);
+var data = new WeakMap();
+
+class Conferences {
+    constructor(confs){
+        data.set(this, confs);
     }
-    nextTalk(){
-        var opts = options.get(this);
-        return opts.schedule.shift();
-    }
-    name(){
-        var opts = options.get(this);
-        return opts.name;
+    find(filter){
+        return _.where(data.get(this), filter);
     }
 }
+```
 
-var conf = new Conference({
+## index.js
+```js
+var data = [
+  {
     name: 'Thunder Plains',
-    schedule: [
-        {
-            title: 'Maybe We Should Slow Down'
-        }
-    ]
-});
+    category: 'JavaScript',
+    month: 'November'
+  },
+  {
+    name: 'JSConf',
+    category: 'JavaScript',
+    month: 'December'
+  }
+];
 
-conf.name();
-// 'Thunder Plains'
+var confs = new Conferences(data);
 
-conf.nextTalk();
-// { title: 'Maybe We Should Slow Down' }
+confs.find({ month: 'November' });
+// { name: 'Thunder Plains', category: 'JavaScript', month: 'November' }
+
+confs.find({ category: 'JavaScript' });
+// { name: 'Thunder Plains', category: 'JavaScript', month: 'November' },
+// { name: 'JSConf', category: 'JavaScript', month: 'December' }
 ```
