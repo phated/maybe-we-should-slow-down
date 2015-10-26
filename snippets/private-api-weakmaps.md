@@ -1,6 +1,22 @@
 # Private APIs - WeakMaps
 
-## conferences.js
+## conferences.js (before)
+```js
+var _ = require('lodash');
+
+class Conferences {
+    constructor(confs){
+        this._data = confs;
+    }
+    find(filter){
+        return _.where(this._data, filter);
+    }
+}
+
+module.export = Conferences;
+```
+
+## conferences.js (after)
 ```js
 var _ = require('lodash');
 
@@ -14,10 +30,14 @@ class Conferences {
         return _.where(data.get(this), filter);
     }
 }
+
+module.exports = Conferences;
 ```
 
 ## index.js
 ```js
+var Conferences = require('./conferences');
+
 var data = [
   {
     name: 'Thunder Plains',
