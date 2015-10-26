@@ -20,7 +20,7 @@ class TaskMetadataRegistry extends DefaultRegistry {
 module.exports = TaskMetadataRegistry;
 ```
 
-# gulpfile.js
+# gulpfile.babel.js
 ```js
 var gulp = require('gulp');
 var TaskMetadataRegistry = require('./task-metadata');
