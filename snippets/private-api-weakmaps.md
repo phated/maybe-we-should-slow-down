@@ -13,7 +13,7 @@ class Conferences {
     }
 }
 
-module.export = Conferences;
+module.exports = Conferences;
 ```
 
 ## conferences.js (after)
