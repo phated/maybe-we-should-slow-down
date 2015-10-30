@@ -4,17 +4,23 @@
 'use strict';
 
 var gulp = require('gulp');
+var uglify = require('gulp-uglify');
+var concat = require('gulp-concat');
 
-function hello(cb){ ... }
-hello.description = 'This is';
+function js(cb){
+  return gulp.src('src/*.js')
+    .pipe(uglify())
+    .pipe(gulp.dest('dist/'));
+}
+js.description = 'Bundles the JavaScript.';
 
-function thunder(cb){ ... }
-thunder.description = 'an example';
+function css(cb){
+  return gulp.src('src/*.css')
+    .pipe(concat())
+    .pipe(gulp.dest('dist/'));
+}
+css.description = 'Builds the CSS files.';
 
-function plains(cb){ ... }
-plains.description = 'of task descriptions';
-
-gulp.task(hello);
-gulp.task(thunder);
-gulp.task(plains);
+gulp.task(js);
+gulp.task(css);
 ```
